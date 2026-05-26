@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "nom": "Klebsiella pneumoniae KPC",
+    "gram": "neg",
+    "eskape": true,
+    "profil": "carbapenem_resistant",
+    "who": "CRITICAL",
+    "abx_actifs_connus": [
+      "colistine",
+      "cefiderocol",
+      "tigecycline"
+    ]
+  },
+  {
+    "id": 2,
+    "nom": "Acinetobacter baumannii XDR",
+    "gram": "neg",
+    "eskape": true,
+    "profil": "pandrug_resistant",
+    "who": "CRITICAL",
+    "abx_actifs_connus": [
+      "colistine",
+      "tigecycline",
+      "cefiderocol"
+    ]
+  },
+  {
+    "id": 3,
+    "nom": "Pseudomonas aeruginosa MDR",
+    "gram": "neg",
+    "eskape": true,
+    "profil": "multidrug_resistant",
+    "who": "CRITICAL",
+    "abx_actifs_connus": [
+      "colistine",
+      "cefiderocol",
+      "aztreonam"
+    ]
+  },
+  {
+    "id": 4,
+    "nom": "E. coli ESBL",
+    "gram": "neg",
+    "eskape": false,
+    "profil": "esbl_producer",
+    "who": "HIGH",
+    "abx_actifs_connus": [
+      "meropenem",
+      "amikacine",
+      "fosfomycine",
+      "nitrofurantoine"
+    ]
+  },
+  {
+    "id": 5,
+    "nom": "SARM (S. aureus MRSA)",
+    "gram": "pos",
+    "eskape": true,
+    "profil": "methicillin_resistant",
+    "who": "HIGH",
+    "abx_actifs_connus": [
+      "vancomycine",
+      "linezolide",
+      "daptomycine"
+    ]
+  },
+  {
+    "id": 6,
+    "nom": "Enterococcus faecium VRE",
+    "gram": "pos",
+    "eskape": true,
+    "profil": "vancomycin_resistant",
+    "who": "HIGH",
+    "abx_actifs_connus": [
+      "linezolide",
+      "daptomycine",
+      "tigecycline"
+    ]
+  },
+  {
+    "id": 7,
+    "nom": "Candida auris MDR",
+    "gram": "fungi",
+    "eskape": false,
+    "profil": "azole_resistant",
+    "who": "CRITICAL",
+    "abx_actifs_connus": [
+      "caspofungine",
+      "amphotericine_b"
+    ]
+  },
+  {
+    "id": 8,
+    "nom": "M. tuberculosis MDR-TB",
+    "gram": "mycobact",
+    "eskape": false,
+    "profil": "mdr_tb",
+    "who": "CRITICAL",
+    "abx_actifs_connus": [
+      "bedaquiline",
+      "delamanid",
+      "linezolide"
+    ]
+  }
+]

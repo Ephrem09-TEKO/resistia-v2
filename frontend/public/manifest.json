@@ -1,0 +1,97 @@
+{
+  "name": "ResistIA v2.0 — Plateforme AMR",
+  "short_name": "ResistIA",
+  "description": "Plateforme mondiale de lutte contre la résistance aux antibiotiques — Powered by ResistIA Brain",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0F1E",
+  "theme_color": "#00D4FF",
+  "orientation": "any",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["medical", "health", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Analyser",
+      "short_name": "Analyser",
+      "description": "Lancer une analyse d'antibiogramme",
+      "url": "/analyse",
+      "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Carte mondiale",
+      "short_name": "Carte",
+      "description": "Surveillance épidémiologique mondiale",
+      "url": "/carte",
+      "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Brain Chat",
+      "short_name": "Chat",
+      "description": "Poser une question à ResistIA Brain",
+      "url": "/assistant",
+      "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96", "type": "image/png" }]
+    }
+  ],
+"screenshots": [
+  {
+    "src": "/icons/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "form_factor": "wide",
+    "label": "ResistIA v2.0 — Tableau de bord"
+  },
+  {
+    "src": "/icons/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "form_factor": "narrow",
+    "label": "ResistIA v2.0 — Mobile"
+  }
+]
+}
