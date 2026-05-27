@@ -32,11 +32,12 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:4173",
-        "https://resistia.vercel.app",
-        "*",
-    ],
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "https://resistia-v2.vercel.app",
+    "https://Diano09-resistia-brain-api.hf.space",
+    "*",
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
