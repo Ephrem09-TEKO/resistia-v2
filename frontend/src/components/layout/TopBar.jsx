@@ -19,23 +19,40 @@ export default function TopBar({ onToggle }) {
   const [apiConnected, setApiConnected] = useState(false)
 
   useEffect(() => {
-    // Statut réseau
-    const handleOnline  = () => setOnline(true)
-    const handleOffline = () => setOnline(false)
-    window.addEventListener('online',  handleOnline)
-    window.addEventListener('offline', handleOffline)
+  const handleOnline  = () => setOnline(true)
+  const handleOffline = () => setOnline(false)
+  window.addEventListener('online',  handleOnline)
+  window.addEventListener('offline', handleOffline)
 
-    // Health check API — import dynamique pour éviter crash
-    const API_URL = import.meta.env.VITE_API_URL || 'https://diano09-resistia-brain-api.hf.space'
-    fetch(`${API_URL}/api/health`)
-      .then(r => r.json())
-      .then(d => setApiConnected(d?.status === 'healthy'))
-      .catch(() => setApiConnected(false))
-      return () => {
-      window.removeEventListener('online',  handleOnline)
-      window.removeEventListener('offline', handleOffline)
+  // Health check avec retry
+  const checkBrain = async () => {
+    const API = import.meta.env.VITE_API_URL
+      || 'https://diano09-resistia-brain-api.hf.space'
+
+    for (let i = 0; i < 5; i++) {
+      try {
+        const res  = await fetch(`${API}/api/health`)
+        const ct   = res.headers.get('content-type') || ''
+        if (ct.includes('application/json') && res.ok) {
+          const data = await res.json()
+          if (data?.status === 'healthy') {
+            setApiConnected(true)
+            return
+          }
+        }
+      } catch {}
+      await new Promise(r => setTimeout(r, 3000))
     }
-  }, [])
+    setApiConnected(false)
+  }
+
+  checkBrain()
+
+  return () => {
+    window.removeEventListener('online',  handleOnline)
+    window.removeEventListener('offline', handleOffline)
+  }
+}, [])
 
   return (
     <header className="h-16 flex items-center justify-between px-6
