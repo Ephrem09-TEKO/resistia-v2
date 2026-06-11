@@ -3,17 +3,44 @@
  * Connecte le frontend React au backend FastAPI
  */
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://diano09-resistia-brain-api.hf.space'
+const BASE_URL = import.meta.env.VITE_API_URL
+  || 'https://diano09-resistia-brain-api.hf.space'
+
+let apiWarm = false
+
+async function wakeUp() {
+  if (apiWarm) return true
+  try {
+    const res = await fetch(`${BASE_URL}/`, { method:'GET' })
+    const text = await res.text()
+    if (text.includes('ResistIA') || res.ok) {
+      apiWarm = true
+      return true
+    }
+    return false
+  } catch {
+    return false
+  }
+}
 
 async function request(method, endpoint, body = null) {
   const options = {
     method,
     headers: { 'Content-Type': 'application/json' },
+    mode: 'cors',
   }
   if (body) options.body = JSON.stringify(body)
 
   try {
     const res = await fetch(`${BASE_URL}${endpoint}`, options)
+
+    // Vérifie si la réponse est bien du JSON
+    const contentType = res.headers.get('content-type') || ''
+    if (!contentType.includes('application/json')) {
+      console.warn(`[API] ${endpoint} — réponse non-JSON (Space en veille?) — mode simulation`)
+      return null
+    }
+
     if (!res.ok) {
       const err = await res.json().catch(() => ({}))
       throw new Error(err.detail || `HTTP ${res.status}`)
