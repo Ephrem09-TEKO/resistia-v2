@@ -3,7 +3,7 @@
  * Connecte le frontend React au backend FastAPI
  */
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://diano09-resistia-brain-api.hf.space'
 
 async function request(method, endpoint, body = null) {
   const options = {

@@ -26,12 +26,12 @@ export default function TopBar({ onToggle }) {
     window.addEventListener('offline', handleOffline)
 
     // Health check API — import dynamique pour éviter crash
-    fetch('http://localhost:8000/api/health')
+    const API_URL = import.meta.env.VITE_API_URL || 'https://diano09-resistia-brain-api.hf.space'
+    fetch(`${API_URL}/api/health`)
       .then(r => r.json())
       .then(d => setApiConnected(d?.status === 'healthy'))
       .catch(() => setApiConnected(false))
-
-    return () => {
+      return () => {
       window.removeEventListener('online',  handleOnline)
       window.removeEventListener('offline', handleOffline)
     }
